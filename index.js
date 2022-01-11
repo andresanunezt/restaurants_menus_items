@@ -1,29 +1,54 @@
-//MY ATTEMPT
-// const {Sequelize, DataTypes, Model} = require('sequelize')
-
-
-// const db = new Sequelize( {
-
-// dialect: 'sqlite',
-// storage: './restaurants.db',
-// logging: false,
-
-// })
+const {sequelize, DataTypes, Model} = require('./index');
 
 
 
 
+class Restaurant extends Model {
 
+   
 
-// module.exports = {db, DataTypes, Model}
-
-// MULTIVERSE:
-
-const {Sequelize, DataTypes, Model} = require('sequelize');
-
-const sequelize = new Sequelize('database', 'username', 'password', {
-    dialect: 'sqlite',
-    storage: './restaurants-seq.sqlite'
+}
+Restaurant.init({
+    name: DataTypes.STRING,
+    image: DataTypes.STRING,
+}, {
+    sequelize,
+    timestamps: false,
 });
 
- module.exports={sequelize, DataTypes, Model};
+
+
+
+class Menu extends Model {}
+
+Menu.init({
+    name: DataTypes.STRING,
+    hours: DataTypes.STRING,
+}, {
+    sequelize,
+    timestamps: false,
+});
+
+class Item extends Model {
+
+    
+
+}
+Item.init({
+    name: DataTypes.STRING,
+    price: DataTypes.INTEGER,
+}, {
+    sequelize,
+    timestamps: false,
+});
+
+Restaurant.hasMany(Menu)
+Menu.hasMany(Item)
+Menu.belongsTo(Restaurant)
+Item.belongsTo(Menu)
+
+module.exports = {
+    Restaurant,
+    Menu,
+    Item
+};
