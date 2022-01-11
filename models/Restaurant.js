@@ -1,8 +1,8 @@
-const {sequelize, DataTypes, Model} = require('./_index');
+const {sequelize, DataTypes, Model} = require('../index');
 
-/**
- * Represents a Restaurant
- */
+
+const Menu = require('./Menu')
+
 class Restaurant extends Model {
 
     // add methods here
@@ -19,3 +19,6 @@ Restaurant.init({
 module.exports = {
     Restaurant
 };
+
+
+Restaurant.hasMany(Menu)
