@@ -36,12 +36,32 @@ describe('Menu Class', () => {
         expect(menu.name).toBe('Late Night');
     })
 
-    test('menu has hours', async () => {
+    test('Menu has hours', async () => {
         const menu = await Menu.create({name: 'Late',hours: "9pm-2am"});
         expect(menu.hours).toBe('9pm-2am');
     })
 
 })
+
+describe('Item Class', () => {
+    beforeAll(async () => {
+        await sequelize.sync({ force: true });
+    })
+    
+    test('Item has a name', async () => {
+        const menu_item = await Item.create({name: 'Expensive Food', price: 33.99});
+        expect(menu_item.name).toBe('Expensive Food');
+    })
+
+    test('Item has hours', async () => {
+        const menu_item = await Item.create({name: 'Cheaper Food',price: 9.99});
+        expect(menu_item.price).toBe(9.99);
+    })
+
+})
+
+
+
 
 describe('Relationships', () => {
     beforeAll(async () => {
