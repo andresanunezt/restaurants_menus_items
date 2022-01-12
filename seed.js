@@ -1,4 +1,4 @@
-// const {Restaurant, Menu, Item} = require('./db/index')
+
 
 const {Restaurant} = require('./models/Restaurant')
 const {Menu} = require('./models/Menu')
