@@ -54,15 +54,15 @@ app.post("/restaurants", async(request, response)=>{
 app.put("/restaurants/:id", async(request, response)=>{
     // const rest = await Restaurant.findByPk(request.params.id)
     // rest.updater(request.body)
-    
-    const rest = await Restaurant.update(
+    // const rest =
+    await Restaurant.update(
     request.body,
     {where: { id: request.params.id}})
     response.send("Updated")
 })
 
 app.delete("/restaurants/:id", async(request, response)=>{
-    const rest = await Restaurant.destroy( 
+    await Restaurant.destroy( 
     {where: { id: request.params.id}})
     response.send("Deleted")
 })
