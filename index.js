@@ -1,4 +1,4 @@
-const {sequelize, DataTypes, Model} = require('./index');
+const {sequelize, DataTypes, Model} = require('./db');
 
 
 
@@ -10,7 +10,7 @@ class Restaurant extends Model {
 }
 Restaurant.init({
     name: DataTypes.STRING,
-    image: DataTypes.STRING,
+    location: DataTypes.STRING,
 }, {
     sequelize,
     timestamps: false,
