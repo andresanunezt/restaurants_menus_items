@@ -4,9 +4,6 @@ const {sequelize} = require('../db');
 
 
 
-
-
-
 describe('Restaurant Class', () => {
     beforeAll(async () => {
         await sequelize.sync({ force: true });
